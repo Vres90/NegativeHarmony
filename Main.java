@@ -82,7 +82,7 @@ public class Main {
         List keys = new ArrayList(map.keySet());
         if (keys.contains(note))
             return String.valueOf(
-                    keys.get( (keys.indexOf(note)+interval)%12)
+                    keys.get((keys.indexOf(note)+interval)%12)
             );
         
         return null;
