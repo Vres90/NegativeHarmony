@@ -5,38 +5,7 @@ import java.util.*;
 axis to get new chords and, hopefully, interesting chord progressions. Source code by Patrick Park a.k.a Vres. */
 
 public class Main {
-    public static Object toTitleCase(Object o) {
-        // Returns properly formatted note names.
-
-        if (o instanceof String) {
-            return ((String) o).substring(0, 1).toUpperCase() + ((String) o).substring(1).toLowerCase();
-
-        } else if (o instanceof Cloneable) {
-            String[] givenObjectToArray = ((String[]) o);
-            String[] capitalizedNotes = new String[((String[])o).length];
-
-            for (int i = 0; i<givenObjectToArray.length; i++)
-                capitalizedNotes[i] = givenObjectToArray[i].substring(0, 1).toUpperCase() +
-                givenObjectToArray[i].substring(1).toLowerCase();
-
-            return capitalizedNotes;
-        }
-
-        return null;
-    }
-
-    public static String getNote(LinkedHashMap map, String note, int interval) {
-        // This method returns note from the chromatic scale a given number of half-steps away from provided note.
-
-        List keys = new ArrayList(map.keySet());
-        if (keys.contains(note))
-            return String.valueOf(
-                    keys.get( (keys.indexOf(note)+interval)%12)
-                    );
-
-        return null;
-    }
-
+    
     public static void main (String[] args) {
         Scanner user = new Scanner(System.in);
 
@@ -83,8 +52,39 @@ public class Main {
                                         Integer.valueOf(cs.get(key).substring(3,5)))
                         + " "
                 );
-
             System.out.println("\n");
         }
+    }
+
+    public static Object toTitleCase(Object o) {
+        // Returns properly formatted note names.
+
+        if (o instanceof String) {
+            return ((String) o).substring(0, 1).toUpperCase() + ((String) o).substring(1).toLowerCase();
+
+        } else if (o instanceof Cloneable) {
+            String[] givenObjectToArray = ((String[]) o);
+            String[] capitalizedNotes = new String[((String[])o).length];
+
+            for (int i = 0; i<givenObjectToArray.length; i++)
+                capitalizedNotes[i] = givenObjectToArray[i].substring(0, 1).toUpperCase() +
+                        givenObjectToArray[i].substring(1).toLowerCase();
+
+            return capitalizedNotes;
+        }
+        
+        return null;
+    }
+
+    public static String getNote(LinkedHashMap map, String note, int interval) {
+        // This method returns note from the chromatic scale a given number of half-steps away from provided note.
+
+        List keys = new ArrayList(map.keySet());
+        if (keys.contains(note))
+            return String.valueOf(
+                    keys.get( (keys.indexOf(note)+interval)%12)
+            );
+        
+        return null;
     }
 }
