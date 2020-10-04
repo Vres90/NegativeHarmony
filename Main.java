@@ -2,7 +2,7 @@ package com.company;
 import java.util.*;
 
 /* Negative harmony is a concept conceived by Swiss musicologist Ernst Levy. The idea is to reflect notes over an
-axis to get new chords and, hopefully, interesting chord progressions. Source code by Patrick Park a.k.a Vres. */
+axis to get new chords and, hopefully, interesting chord progressions. Source code by Patrick Park. */
 
 public class Main {
     
@@ -48,10 +48,9 @@ public class Main {
             for (int i = 0;i<givenNotes.length;i++)
                 if (cs.containsKey(givenNotes[i]))
                     System.out.print(getNote(cs, givenNotes[i],
-                                Integer.valueOf(cs.get(givenNotes[i]).substring(0,2)) +
-                                        Integer.valueOf(cs.get(key).substring(3,5)))
-                        + " "
-                );
+                    Integer.valueOf(cs.get(givenNotes[i]).substring(0,2)) +
+                    Integer.valueOf(cs.get(key).substring(3,5))) + " ");
+            
             System.out.println("\n");
         }
     }
@@ -61,7 +60,6 @@ public class Main {
 
         if (o instanceof String) {
             return ((String) o).substring(0, 1).toUpperCase() + ((String) o).substring(1).toLowerCase();
-
         } else if (o instanceof Cloneable) {
             String[] givenObjectToArray = ((String[]) o);
             String[] capitalizedNotes = new String[((String[])o).length];
@@ -72,7 +70,6 @@ public class Main {
 
             return capitalizedNotes;
         }
-        
         return null;
     }
 
