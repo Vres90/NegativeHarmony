@@ -28,7 +28,7 @@ public class Main {
             System.out.print("Which notes do you want to invert?\n>> ");
             String notes = user.nextLine();
 
-            if (notes.equals("0") || notes.equals("")) break;
+            if (notes.equals("0") || notes.isEmpty()) break;
 
             String[] givenNotes = ((String[]) toTitleCase(notes.split(" ")));
 
